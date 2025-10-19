@@ -1,9 +1,11 @@
-import React from 'react'
 
-const page = () => {
+export default function Home() {
   return (
-    <div>page</div>
-  )
+    <main>
+   
+      <h1>Hello, Next.js!</h1>
+      <p>Welcome to your Next.js application.</p>
+      
+    </main>
+  );
 }
-
-export default page
