@@ -1,7 +1,7 @@
 import React from "react";
 
 const page = ({ params }: { params: { slug: string[] } }) => {
-  return <div>{params.slug}</div>;
+  return <div>hey{params.slug?.join("/")}</div>;
 };
 
 export default page;
