@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+
 const Users = [
   {
     id: 1,
@@ -36,11 +37,24 @@ const Users = [
     role: "DevOps Engineer",
   },
 ];
-
-export default Users;
-
-export async function GET(request: Request) {
-  return NextResponse.json({
-    Users,
-  });
+export async function GET(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
+  try {
+    const { id } = params;
+    const userId = Number(id);
+    const user = Users.find((u) => u.id === userId);
+    if (user) {
+      return NextResponse.json({
+        success: true,
+        date: user,
+      });
+    }
+  } catch (error) {
+    return NextResponse.json({
+      success: false,
+      error: "couldnt find the user",
+    });
+  }
 }

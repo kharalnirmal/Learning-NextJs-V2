@@ -1,5 +1,4 @@
-import { NextResponse } from "next/server";
-const Users = [
+const users = [
   {
     id: 1,
     name: "Aarav Sharma",
@@ -37,10 +36,4 @@ const Users = [
   },
 ];
 
-export default Users;
-
-export async function GET(request: Request) {
-  return NextResponse.json({
-    Users,
-  });
-}
+export default users;
