@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import users from "./data";
+import users from "../../delete-user/[id]/data";
 
 export async function PUT(
   request: Request,
