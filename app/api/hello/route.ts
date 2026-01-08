@@ -40,7 +40,19 @@ const Users = [
 export default Users;
 
 export async function GET(request: Request) {
-  return NextResponse.json({
-    Users,
-  });
+  try {
+    const { searchParams } = new URL(request.url);
+    const name = searchParams.get("name");
+    const age = searchParams.get("age");
+    console.log(name, age);
+
+    return NextResponse.json({
+      Users,
+      queryParams: { name, age },
+    });
+  } catch (error) {
+    return NextResponse.json({
+      error: "failed",
+    });
+  }
 }
